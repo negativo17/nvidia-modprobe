@@ -1,5 +1,5 @@
 Name:           nvidia-modprobe
-Version:        361.42
+Version:        364.19
 Release:        1%{?dist}
 Summary:        NVIDIA kernel module loader
 Epoch:          2
@@ -36,6 +36,9 @@ mkdir -p %{buildroot}%{_sbindir}
 %{_mandir}/man1/%{name}.1.*
 
 %changelog
+* Mon May 02 2016 Simone Caronni <negativo17@gmail.com> - 2:364.19-1
+- Update to 364.19.
+
 * Wed Mar 30 2016 Simone Caronni <negativo17@gmail.com> - 2:361.42-1
 - Update to 361.42.
 
