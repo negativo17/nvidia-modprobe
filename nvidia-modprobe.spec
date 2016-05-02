@@ -18,16 +18,18 @@ present.
 
 %prep
 %setup -q
-sed -i -e 's|/usr/local|%{_prefix}|g' utils.mk
+# Remove additional CFLAGS added when enabling DEBUG
+sed -i '/+= -O0 -g/d' utils.mk
 
 %build
 make %{?_smp_mflags} \
+    DEBUG=1 \
     NV_VERBOSE=1 \
-    STRIP_CMD="true"
+    PREFIX=%{_prefix}
 
 %install
 mkdir -p %{buildroot}%{_sbindir}
-%make_install INSTALL="install -p"
+%make_install INSTALL="install -p" PREFIX=%{_prefix}
 
 %files
 %{!?_licensedir:%global license %%doc}
@@ -38,6 +40,7 @@ mkdir -p %{buildroot}%{_sbindir}
 %changelog
 * Mon May 02 2016 Simone Caronni <negativo17@gmail.com> - 2:364.19-1
 - Update to 364.19.
+- Update make parameters.
 
 * Wed Mar 30 2016 Simone Caronni <negativo17@gmail.com> - 2:361.42-1
 - Update to 361.42.
