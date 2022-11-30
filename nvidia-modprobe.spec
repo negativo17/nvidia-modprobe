@@ -8,7 +8,7 @@ URL:            http://www.nvidia.com/object/unix.html
 ExclusiveArch:  %{ix86} x86_64
 
 Source0:        https://github.com/NVIDIA/%{name}/archive/refs/tags/%{version}.tar.gz#/%{name}-%{version}.tar.gz
-Patch0:         %{name}-384.69-man-page-permissions.patch
+Patch0:         %{name}-man-page-permissions.patch
 
 BuildRequires:  gcc
 BuildRequires:  m4
